@@ -65,7 +65,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
             spotname: $scope.formData.spotname,
             spotdescription: $scope.formData.spotdescription,
             sporttypes: $scope.formData.sporttypes,
-            spotseason: $scope.formData.spotseason,
+            spotseasons: $scope.formData.spotseasons,
             location: [$scope.formData.longitude, $scope.formData.latitude],
             htmlverified: $scope.formData.htmlverified
         };
@@ -78,7 +78,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
                 $scope.formData.spotname ="";
                 $scope.formData.spotdescription = "";
                 $scope.formData.sporttypes = [];
-                $scope.formData.spotseason = [];
+                $scope.formData.spotseasons = [];
 
                 // Refresh the map with new data
                 gservice.refresh($scope.formData.latitude, $scope.formData.longitude);
