@@ -57,27 +57,28 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
     };
 
     // Creates a new user based on the form fields
-    $scope.createUser = function() {
+    $scope.createSpot = function() {
 
         // Grabs all of the text box fields
-        var userData = {
-            username: $scope.formData.username,
-            gender: $scope.formData.gender,
-            age: $scope.formData.age,
-            favlang: $scope.formData.favlang,
+        var spotData = {
+            //username: $scope.formData.username,
+            spotname: $scope.formData.spotname,
+            spotdescription: $scope.formData.spotdescription,
+            sporttypes: $scope.formData.sporttypes,
+            spotseason: $scope.formData.spotseason,
             location: [$scope.formData.longitude, $scope.formData.latitude],
             htmlverified: $scope.formData.htmlverified
         };
 
         // Saves the user data to the db
-        $http.post('/users', userData)
+        $http.post('/spots', spotData)
             .success(function (data) {
 
                 // Once complete, clear the form (except location)
-                $scope.formData.username = "";
-                $scope.formData.gender = "";
-                $scope.formData.age = "";
-                $scope.formData.favlang = "";
+                $scope.formData.spotname ="";
+                $scope.formData.spotdescription = "";
+                $scope.formData.sporttypes = [];
+                $scope.formData.spotseason = [];
 
                 // Refresh the map with new data
                 gservice.refresh($scope.formData.latitude, $scope.formData.longitude);

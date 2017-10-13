@@ -17,36 +17,46 @@
 
                 <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
                 <div class="form-group">
+                    <label for="spotname">Name <span class="badge">All fields required</span></label>
+                    <input type="text" class="form-control" id="spotname" placeholder="Crissy Field" ng-model="formData.spotname" required>
+                </div>
+                <div class="form-group">
+                    <label for="spotDescription">Description</label>
+                    <textarea class="form-control" id="spotDescription" rows="3" placeholder="Description of new spot" ng-model="formData.spotdescription" required></textarea>
+                </div>
+                <!-- sportTypes -->
+                <div class="form-group">
+                    <label for="sportTypes">What activities are available (select 1 or more)</label>
+                    <select multiple class="form-control" id="sportTypes" ng-model="formData.sporttypes" required>
+                    <option>Kiteboarding</option>
+                    <option>Windsurfing</option>
+                    <option>Surfing</option>
+                    <option>SUP</option>
+                    </select>
+                </div>
+                <!-- spotSeason -->
+                <div class="form-group">
+                    <label for="spotSeason">What seasons are good (select 1 or more)</label>
+                    <select multiple class="form-control" id="spotSeason" ng-model="formData.spotseason">
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>November</option>
+                    <option>December</option>
+                    </select>
+                </div>
+                <!-- example from original form
+                <div class="form-group">
                     <label for="username">Username <span class="badge">All fields required</span></label>
                     <input type="text" class="form-control" id="username" placeholder="OldandGold" ng-model="formData.username" required>
                 </div>
-                <label class="radio control-label">Gender</label>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="optionsRadios" id="radiomale" value="Male" ng-model="formData.gender">
-                        Male
-                    </label>
-                </div>
-                <div class="radio" required>
-                    <label>
-                        <input type="radio" name="optionsRadios" id="radiofemale" value="Female" ng-model="formData.gender">
-                        Female
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="optionsRadios" id="radioother" value="What's it to ya?" ng-model="formData.gender">
-                        What's it to ya?
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" class="form-control" id="age" placeholder="72" ng-model="formData.age" required>
-                </div>
-                <div class="form-group">
-                    <label for="language">Favorite Language</label>
-                    <input type="text" class="form-control" id="language" placeholder="Fortran" ng-model="formData.favlang" required>
-                </div>
+                -->
                 <div class="form-group">
                     <label for="latitude">Latitude</label>
                     <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly>
@@ -62,7 +72,7 @@
                 </div>
 
                 <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
-                <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" ng-disabled="addForm.$invalid">Submit</button>
+                <button type="submit" class="btn btn-danger btn-block" ng-click="createSpot()" ng-disabled="addForm.$invalid">Submit</button>
             </form>
         </div>
     </div>
